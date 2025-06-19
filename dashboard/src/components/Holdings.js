@@ -9,7 +9,6 @@ const Holdings = () => {
 
   useEffect(()=>{
     axios.get(`${process.env.REACT_APP_API_URL}/allHoldings`).then((res)=>{
-      console.log(res.data); 
       setAllHoldings(res.data);
     })
   },[])
