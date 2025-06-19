@@ -9,7 +9,7 @@ const authRoute = require("./Routes/AuthRoute");
 const bodyParser = require("body-parser");
 const { Order } = require("./models/Orders")
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const URL = process.env.MONGO_URL;
 
 

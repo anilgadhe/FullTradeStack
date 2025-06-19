@@ -16,17 +16,20 @@ const Signup = () => {
     e.preventDefault();
     console.log('Form Data:', form);
 
-    axios.post("http://localhost:8000/signup", {
+    axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
       email: form.email,
       username: form.username,
       password: form.password,
-    }).then(response => {
-      console.log("Signup success:", response.data);
-      window.location.href = "http://localhost:3000/login";
-    }).catch(error => {
-      console.error("Signup error:", error);
-      alert("Signup failed. Try again.");
-    });
+    })
+      .then(response => {
+        console.log("Signup success:", response.data);
+        // Redirect to login page (you can change this if hosted)
+        window.location.href = "/login"; // Use relative path
+      })
+      .catch(error => {
+        console.error("Signup error:", error);
+        alert("Signup failed. Try again.");
+      });
   };
 
   return (
