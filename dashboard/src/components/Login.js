@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     console.log('Login Data:', credentials);
 
-    axios.post("http://localhost:8000/login", {
+    axios.post(`${process.env.REACT_APP_API_URL}/login`, {
       username: credentials.username,
       password: credentials.password,
     }).then(response => {
