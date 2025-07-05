@@ -15,7 +15,7 @@ function Hero() {
               <hr/>
             <div className="row g-2  p-2 mt-5  mb-5 " style={{fontSize:"1.1em"}}>
                 <div className="col-12 col-md-12 col-lg-6">
-                    <p> We kick-started operations on the 15th of August, 2010 <br></br> with the goal of breaking all barriers that traders and <br></br> investors face in India in terms of cost, support, and <br></br> technology. We named the company Zerodha, a combination of Zero and <br></br> "Rodha", the Sanskrit word for barrier.</p>
+                    <p> We kick-started operations on the 15th of August, 2010 <br></br> with the goal of breaking all barriers that traders and <br></br> investors face in India in terms of cost, support, and <br></br> technology. We named the company FulltradeStack, a combination of Zero and <br></br> "Rodha", the Sanskrit word for barrier.</p>
 
                     <p> Today, our disruptive pricing models and in-house <br></br> technology have made us the biggest stock broker in <br></br> India.</p>
 
@@ -41,7 +41,7 @@ function Hero() {
                     </div>
 
                     <div className="col-12 col-md-12 col-lg-6  " style={{fontSize:"1.2em"}}>
-                        <p>Nithin bootstrapped and founded Zerodha in 2010 to overcome <br></br> the hurdles he faced during his decade long stint as a trader. Today,<br></br> Zerodha has changed the landscape of the Indian broking industry.</p>
+                        <p>Nithin bootstrapped and founded FulltradeStack in 2010 to overcome <br></br> the hurdles he faced during his decade long stint as a trader. Today,<br></br> FulltradeStack has changed the landscape of the Indian broking industry.</p>
 
                         <p>He is a member of the SEBI Secondary Market Advisory Committee <br></br> (SMAC) and the Market Data Advisory Committee (MDAC).</p>
 

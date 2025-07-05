@@ -4,22 +4,22 @@ function Universe() {
     return (
         <div className="container">
             <div className=" text-center">
-                <p className="fs-4 mb-5">Want to know more about our technology stack? Check out the <a href="#" className="text-decoration-none"> Zerodha.tech </a> blog.</p>
+                <p className="fs-4 mb-5">Want to know more about our technology stack? Check out the <a href="#" className="text-decoration-none"> FulltradeStack.tech </a> blog.</p>
 
-                <h1 className="mb-3">The Zerodha Univeese</h1>
+                <h1 className="mb-3">The FulltradeStack Univeese</h1>
                 <p className="fs-5">Extend your trading and investment experience even further with our partner platforms</p>
 
             </div>
             <div className="row mt-5">
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/zerodhaFund.png" alt="zerodha_img" height="50" />
+                    <img src="media/images/FulltradeStackFund.png" alt="FulltradeStack_img" height="50" />
                     <p className=" fs-6">Our asset management venture
                         that is creating simple and transparent index
                         funds to help you save for your goals.</p>
                 </div>
 
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/sensibullLogo.svg" alt="zerodha_img" height="50" />
+                    <img src="media/images/sensibullLogo.svg" alt="FulltradeStack_img" height="50" />
                     <p className=" fs-6">Options trading platform that lets you
                         create strategies, analyze positions, and examine
                         data points like open interest, FII/DII, and more.
@@ -27,7 +27,7 @@ function Universe() {
                 </div>
 
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/tijori.svg" alt="zerodha_img" height="50" />
+                    <img src="media/images/tijori.svg" alt="FulltradeStack_img" height="50" />
                     <p className="text-center fs-6">Our asset management venture
                         that is creating simple and transparent index
                         funds to help you save for your goals.</p>
@@ -36,7 +36,7 @@ function Universe() {
 
             <div className="row mt-5">
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/streakLogo.png" alt="zerodha_img" height="50" />
+                    <img src="media/images/streakLogo.png" alt="FulltradeStack_img" height="50" />
                     <p className=" fs-6">
                         Systematic trading platform
                         that allows you to create and backtest
@@ -44,7 +44,7 @@ function Universe() {
                 </div>
 
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/smallcaseLogo.png" alt="zerodha_img" height="50" />
+                    <img src="media/images/smallcaseLogo.png" alt="FulltradeStack_img" height="50" />
                     <p className=" fs-6">
                         Thematic investing platform
                         that helps you invest in diversified
@@ -53,7 +53,7 @@ function Universe() {
                 </div>
 
                 <div className="col-12  col-md-12 col-lg-4 text-center">
-                    <img src="media/images/dittoLogo.png" alt="zerodha_img" height="50" />
+                    <img src="media/images/dittoLogo.png" alt="FulltradeStack_img" height="50" />
                     <p className="text-center fs-6">
                         Personalized advice on life
                         and health insurance. No spam

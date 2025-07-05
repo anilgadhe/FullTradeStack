@@ -32,7 +32,7 @@ function Hero() {
                             </div>
 
                             <div className="col-12 col-md-12 col-lg-4">
-                                <a href="" className="text-white fs-5"> Kite user manual</a>
+                                <a href="" className="text-white fs-5"> Dashboard user manual</a>
                             </div>
                         </div>
                     </div>

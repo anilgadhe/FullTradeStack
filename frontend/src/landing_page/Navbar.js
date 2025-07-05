@@ -7,7 +7,7 @@ return (
 <nav className="container navbar navbar-expand-lg bg-body-tertiary border-bottom d-flex justify-content-around "  >
  
 
-    <a className="navbar-brand" href="/"> <img src="media/images/logo.svg"  height="20" alt="logo_img"/></a>
+    <a className="navbar-brand" href="/"> <img src="media/images/tradeStack.svg"  height="50" alt="logo_img"/></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
        </button>

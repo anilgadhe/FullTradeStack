@@ -17,11 +17,8 @@ const Menu = () => {
   }
 
   function handleLogout() {
-    // Clear auth data
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-
-    // Redirect to login
     navigate("/login");
   }
 
@@ -30,7 +27,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "50px" }} alt="logo_img" />
+      <img src="logo.svg" style={{ width: "200px" }} alt="logo_img" />
       <div className="menus">
         <ul>
           <li>
@@ -58,31 +55,31 @@ const Menu = () => {
               <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>Funds</p>
             </Link>
           </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} to="/apps" onClick={() => handleClick(6)}>
-              <p className={selectedMenu === 6 ? activeMenuClass : menuClass}>Apps</p>
-            </Link>
-          </li>
         </ul>
 
         <hr />
 
         <div className="profile" onClick={handleProfileClick} style={{ position: "relative", cursor: "pointer" }}>
-          <div className="avatar">ZU</div>
+          <div className="avatar"></div>
           <p className="username">{username}</p>
 
           {isProfileDropdown && (
-            <div className="profile-dropdown" style={{
-              position: "absolute",
-              top: "60px",
-              right: "0",
-              backgroundColor: "#fff",
-              boxShadow: "0 0 5px rgba(0,0,0,0.2)",
-              borderRadius: "5px",
-              padding: "8px",
-              zIndex: 1
-            }}>
-              <button onClick={handleLogout} className="btn btn-sm btn-danger w-100">Logout</button>
+            <div
+              className="profile-dropdown"
+              style={{
+                position: "absolute",
+                top: "60px",
+                right: "0",
+                backgroundColor: "#fff",
+                boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                borderRadius: "5px",
+                padding: "20px",
+                zIndex: 1,
+              }}
+            >
+              <button onClick={handleLogout} className="btn btn-sm btn-danger w-100">
+                Logout
+              </button>
             </div>
           )}
         </div>

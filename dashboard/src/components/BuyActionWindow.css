@@ -219,3 +219,15 @@
     color: #fff;
   }
   
+  .btn-red {
+  padding: 6px 10px;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  background-color: #c0392b;
+}

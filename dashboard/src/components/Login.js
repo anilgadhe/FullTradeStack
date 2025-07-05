@@ -23,6 +23,7 @@ const Login = () => {
       password: credentials.password,
     }).then(response => {
       console.log("Login success:", response.data);
+        localStorage.setItem("username", credentials.username);
       navigate('/'); // Redirect to the home page (/* route)
     }).catch(error => {
       console.error("Login error:", error);

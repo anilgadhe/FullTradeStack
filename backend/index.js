@@ -222,17 +222,72 @@ app.get("/allPositions", async (req, res) => {
     res.json(positions);
 })
 
-app.post("/newOrder", (req, res) => {
-    let neworder = new Order({
-        name: req.body.name,
-        qty: req.body.qty,
-        price: req.body.price,
-        mode: req.body.mode,
-    });
+app.get("/newOrders",async(req,res)=>{
+  let Orders = await Order.find({});
 
-    neworder.save();
-    res.json("NewOrder placed");
+  res.json(Orders);
 })
+
+app.post("/newOrder", async (req, res) => {
+  const { name, qty, price, mode } = req.body;
+
+  try {
+    // Save to Order collection
+    let newOrder = new Order({ name, qty, price, mode });
+    await newOrder.save();
+
+    // Fetch existing holding
+    let existingHolding = await Holding.findOne({ name });
+
+    if (mode === "BUY") {
+      if (existingHolding) {
+        const totalQty = existingHolding.qty + qty;
+        const totalCost = existingHolding.avg * existingHolding.qty + price * qty;
+        const newAvg = totalCost / totalQty;
+
+        existingHolding.qty = totalQty;
+        existingHolding.avg = newAvg;
+        existingHolding.price = price;
+        await existingHolding.save();
+      } else {
+        const newHolding = new Holding({
+          name,
+          qty,
+          avg: price,
+          price,
+          net: "+0%",
+          day: "+0%",
+        });
+        await newHolding.save();
+      }
+    }
+
+    if (mode === "SELL") {
+      if (!existingHolding) {
+        return res.status(404).json("Cannot sell stock you don't hold");
+      }
+
+      if (qty > existingHolding.qty) {
+        return res.status(400).json("Sell quantity exceeds holding quantity");
+      }
+
+      existingHolding.qty -= qty;
+
+      if (existingHolding.qty === 0) {
+        await Holding.deleteOne({ name });
+      } else {
+        existingHolding.price = price;
+        await existingHolding.save();
+      }
+    }
+
+    res.json("Order processed and holdings updated");
+  } catch (err) {
+    console.error(err);
+    res.status(500).json("Internal server error");
+  }
+});
+
 
 ConnectToDB(URL)
     .then(() => {

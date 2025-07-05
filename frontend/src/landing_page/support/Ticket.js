@@ -18,7 +18,7 @@ function Ticket() {
                 </div>
 
                 <div className="col-12 col-md-12 col-lg-4">
-                    <h5 className="mb-3"><span className="bi bi-person"></span>Your Zerodha Account</h5>
+                    <h5 className="mb-3"><span className="bi bi-person"></span>Your FulltradeStack Account</h5>
 
                     <p><a className="text-decoration-none">Your Profile </a></p>
                     <p><a className="text-decoration-none"> Account modification</a></p>
@@ -28,7 +28,7 @@ function Ticket() {
                 </div>
 
                 <div className="col-12 col-md-12 col-lg-4">
-                    <h5 className="mb-3"><span className="bi bi-bar-chart-fill"></span> Kite</h5>
+                    <h5 className="mb-3"><span className="bi bi-bar-chart-fill"></span> Dashboard</h5>
 
                     <a className="text-decoration-none"><p>IPO</p> </a>
                     <a className="text-decoration-none"><p>Trading FAQs</p></a>
