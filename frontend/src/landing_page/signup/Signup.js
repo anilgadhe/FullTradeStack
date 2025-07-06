@@ -24,7 +24,7 @@ const Signup = () => {
       .then(response => {
         console.log("Signup success:", response.data);
         // Redirect to login page (you can change this if hosted)
-        window.location.href = "/login"; // Use relative path
+        window.location.href = "https://fulltradestack-dashboard.onrender.com/login"; // Use relative path
       })
       .catch(error => {
         console.error("Signup error:", error);
