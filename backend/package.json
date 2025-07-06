@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "react-scripts build",
+    "postbuild": "cp public/_redirects build/_redirects"
   },
   "author": "",
   "license": "ISC",
