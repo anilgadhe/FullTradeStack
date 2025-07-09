@@ -1,36 +1,47 @@
-import React, { useState ,useContext} from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState, useContext } from "react";
 import axios from "axios";
-
 import GeneralContext from "./GeneralContext";
-
 import "./BuyActionWindow.css";
 
 const BuyActionWindow = ({ uid }) => {
- const { closeBuyWindow } = useContext(GeneralContext);
-  let [stockQuantity, setStockQuantity] = useState(1);
-  let [stockPrice, setStockPrice] = useState(0.0);
+  const { closeBuyWindow } = useContext(GeneralContext);
+  const [stockQuantity, setStockQuantity] = useState(1);
+  const [stockPrice, setStockPrice] = useState(0.0);
 
- let handleBuyClick = () => {
-  axios
-    .post("http://localhost:8000/newOrder", {
+  const handleBuyClick = () => {
+    const username = localStorage.getItem("username");
+
+    if (!username) {
+      alert("User not logged in.");
+      return;
+    }
+
+    const qty = parseInt(stockQuantity);
+    const price = parseFloat(stockPrice);
+
+    if (!qty || !price || !uid) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+
+    const orderData = {
       name: uid,
-      qty: parseInt(stockQuantity),
-      price: parseFloat(stockPrice),
+      qty,
+      price,
       mode: "BUY",
-    })
-    .then((res) => {
-      console.log("Order placed successfully:", res.data);
-      closeBuyWindow();
-    })
-    .catch((err) => {
-      console.error("Error placing order:", err);
-    });
-};
-
-  const handleCancelClick = () => {
-    closeBuyWindow();
+      username,
+    };
+    console.log("Submitting order:", orderData);
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/newOrder`, orderData)
+      .then((res) => {
+        console.log("Buy order placed successfully:", res.data);
+        closeBuyWindow();
+      })
+      .catch((err) => {
+        console.error("Error placing buy order:", err);
+        alert("Failed to place buy order.");
+      });
   };
 
   return (
@@ -43,6 +54,7 @@ const BuyActionWindow = ({ uid }) => {
               type="number"
               name="qty"
               id="qty"
+              min="1"
               onChange={(e) => setStockQuantity(e.target.value)}
               value={stockQuantity}
             />
@@ -62,14 +74,14 @@ const BuyActionWindow = ({ uid }) => {
       </div>
 
       <div className="buttons">
-        <span>Margin required ₹140.65</span>
+        <span>Margin required ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
+          <button type="button" className="btn btn-blue" onClick={handleBuyClick}>
             Buy
-          </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          </button>
+          <button type="button" className="btn btn-grey" onClick={closeBuyWindow}>
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -1,58 +1,84 @@
-import React from 'react'
+import React from "react";
 
-function Hero() {
-    return (
-        <div className="container">
-            <div className=" p-2 text-center mb-5" style={{ marginTop: "120px" }} >
+const Hero = () => {
+  return (
+    <div className="container py-5" style={{ fontSize: "1.1rem", color: "#333",marginTop:"100px" }}>
+      <div className="text-center mb-5">
+        <h1 className="fw-bold">About FullTradeStack</h1>
+        <p className="text-muted mt-2">A complete stock trading simulation dashboard for modern traders</p>
+        <hr className="w-25 mx-auto mt-3" style={{ borderTop: "3px solid #007bff" }} />
+      </div>
 
-                <h2>We pioneered the discount broking model in India.<br></br>
-                    Now, we are breaking ground with our technology.</h2>
+      <section className="mb-5">
+        <h3 className="text-primary">🚀 Our Vision</h3>
+        <p>
+          <strong>FullTradeStack</strong> is built to simplify the stock trading experience. Whether you're learning, analyzing, or testing strategies,
+          our platform gives you real-time tools to simulate trades and track performance — all in one place.
+        </p>
+      </section>
 
+      <section className="mb-5">
+        <h3 className="text-primary">🔧 Built with Modern Tech</h3>
+        <p>
+          We use a robust full-stack setup:
+        </p>
+        <ul className="ms-4">
+          <li><strong>MongoDB</strong> – stores user-specific orders and holdings</li>
+          <li><strong>Express.js</strong> – handles secure backend API logic</li>
+          <li><strong>React</strong> – provides a fast, interactive UI</li>
+          <li><strong>Node.js</strong> – powers the core backend</li>
+        </ul>
+      </section>
 
-
-
-            </div>
-              <hr/>
-            <div className="row g-2  p-2 mt-5  mb-5 " style={{fontSize:"1.1em"}}>
-                <div className="col-12 col-md-12 col-lg-6">
-                    <p> We kick-started operations on the 15th of August, 2010 <br></br> with the goal of breaking all barriers that traders and <br></br> investors face in India in terms of cost, support, and <br></br> technology. We named the company FulltradeStack, a combination of Zero and <br></br> "Rodha", the Sanskrit word for barrier.</p>
-
-                    <p> Today, our disruptive pricing models and in-house <br></br> technology have made us the biggest stock broker in <br></br> India.</p>
-
-                    <p> Over 1.6+ crore clients place billions of orders every year <br></br> through our powerful ecosystem of investment <br></br> platforms, contributing over 15% of all Indian retail<br></br> trading volumes.</p>
-                </div>
-
-                <div className="col-12 col-md-12 col-lg-6">
-                    <p>  In addition, we run a number of popular open online educational and community initiatives to empower retail traders and investors.</p>
-
-                    <p> <a href="#" className="text-decoration-none">Rainmatter </a>, our fintech fund and incubator, has invested in several fintech startups with the goal of growing the Indian capital markets.</p>
-
-                    <p>  And yet, we are always up to something new every day. Catch up on the latest updates on our blog or see what the media is saying about us or learn more about our business and product philosophies.</p>
-                </div>
-            </div>
-
-            <div className="container mt-5">
-                <h2 className="text-center">People</h2>
-                <div className="row   mt-5 mb-5">
-                    <div className="col-12 col-md-12 col-lg-6 text-center">
-                        <img src="media/images/nithinKamath.jpg" style={{ borderRadius: "100%" }}  height="300" />
-                        <h3 className="mt-4 text-muted">Nithin Kamath</h3>
-                        <p>Founder, CEO</p>
-                    </div>
-
-                    <div className="col-12 col-md-12 col-lg-6  " style={{fontSize:"1.2em"}}>
-                        <p>Nithin bootstrapped and founded FulltradeStack in 2010 to overcome <br></br> the hurdles he faced during his decade long stint as a trader. Today,<br></br> FulltradeStack has changed the landscape of the Indian broking industry.</p>
-
-                        <p>He is a member of the SEBI Secondary Market Advisory Committee <br></br> (SMAC) and the Market Data Advisory Committee (MDAC).</p>
-
-                        <p>Playing basketball is his zen.</p>
-
-                        <p >Connect on <a href="#" className="text-decoration-none"> Homepage</a>/<a href="#" className="text-decoration-none">TradingQnA</a> /<a href="#" className="text-decoration-none">Twitter</a>  </p>
-                    </div>
-                </div>
-            </div>
+      <section className="mb-5">
+        <h3 className="text-primary">📊 What You Can Do</h3>
+        <div className="row">
+          <div className="col-md-6">
+            <ul>
+              <li>Buy and Sell stocks using a virtual environment</li>
+              <li>Track live Holdings and see real-time P&L</li>
+              <li>Visualize order history and position data</li>
+            </ul>
+          </div>
+          <div className="col-md-6">
+            <ul>
+              <li>Export trade reports to CSV/PDF</li>
+              <li>Simulate trading strategies</li>
+              <li>View a complete summary of your trades</li>
+            </ul>
+          </div>
         </div>
-    )
-}
+      </section>
 
-export default Hero
+      <section className="mb-5">
+        <h3 className="text-primary">🔐 User-Specific Data</h3>
+        <p>
+          Every action — from buying a stock to exporting reports — is tied to your account.
+          FullTradeStack ensures data isolation and custom dashboards using your <code>username</code>.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h3 className="text-primary">💡 For Learners and Developers</h3>
+        <p>
+          FullTradeStack is not just a simulation tool — it’s an educational platform. Whether you're:
+        </p>
+        <ul className="ms-4">
+          <li>A student exploring trading concepts</li>
+          <li>A developer practicing full-stack architecture</li>
+          <li>Someone testing your trading logic without real money</li>
+        </ul>
+        <p>
+          This platform is made for you.
+        </p>
+      </section>
+
+      <div className="text-center mt-5">
+        <h4 className="fw-bold">Made with ❤️ by FullTradeStack Team</h4>
+        <p className="text-muted">Bringing together finance, code, and learning — one stack at a time.</p>
+      </div>
+    </div>
+  );
+};
+
+export default  Hero;

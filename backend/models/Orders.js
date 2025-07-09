@@ -1,12 +1,13 @@
 const { Schema, model } = require("mongoose");
 
 const OrderSchema = new Schema({
-    name:String,
-    qty:Number,
-    price:Number,
-    mode:String,
-})
+  name: { type: String, required: true },
+  qty: { type: Number, required: true },
+  price: { type: Number, required: true },
+  mode: { type: String, required: true },
+  username: { type: String, required: true }, 
+  date: { type: Date, default: Date.now }
+});
 
-const Order = new model("Order",OrderSchema);
-
-module.exports={Order};
+const Order = model("Order", OrderSchema);
+module.exports = { Order };

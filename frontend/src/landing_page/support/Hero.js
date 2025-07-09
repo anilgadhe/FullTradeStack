@@ -2,7 +2,7 @@ import React from 'react'
 
 function Hero() {
     return (
-        <div className="bg-primary " style={{ marginTop: "60px",minheight:"50vh" }}>
+        <div className="bg-primary " style={{ marginTop: "100px",minheight:"50vh" }}>
             <div className="container">
                     <div className="d-flex justify-content-between" style={{marginTop:"50px",marginBottom:"60px"}}>
                      <a href="" className="text-decoration-none text-white fs-3">Support Portal</a>

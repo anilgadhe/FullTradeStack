@@ -6,14 +6,16 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
+    const username = localStorage.getItem("username");
+    if (!username) return;
+
     axios
-      .get(`${process.env.REACT_APP_API_URL}/newOrders`)
+      .get(`${process.env.REACT_APP_API_URL}/newOrders?username=${username}`)
       .then((res) => {
-        console.log("Fetched orders ✅", res.data); // Debug
         setOrders(res.data);
       })
       .catch((err) => {
-        console.error("Failed to fetch orders ❌", err);
+        console.error("Failed to fetch orders ", err);
       });
   }, []);
 
@@ -23,8 +25,8 @@ const Orders = () => {
 
       {orders.length === 0 ? (
         <div className="no-orders">
-          <p>You haven't placed any orders today</p>
-          <Link to={"/"} className="btn">
+          <p>You haven't placed any orders yet</p>
+          <Link to="/" className="btn">
             Get started
           </Link>
         </div>
@@ -37,6 +39,7 @@ const Orders = () => {
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Type</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
@@ -46,6 +49,11 @@ const Orders = () => {
                   <td>{order.qty}</td>
                   <td>{order.price}</td>
                   <td>{order.mode}</td>
+                  <td>
+                    {order.date
+                      ? new Date(order.date).toLocaleString("en-IN")
+                      : "N/A"}
+                  </td>
                 </tr>
               ))}
             </tbody>

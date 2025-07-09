@@ -1,16 +1,15 @@
 const { Schema, model } = require("mongoose");
 
 const holdingSchema = new Schema({
-    name: String,
-    qty: Number,
-    avg: Number,
-    price: Number,
-    net: String,
-    day: String,
+  name: { type: String, required: true },
+  qty: { type: Number, required: true },
+  avg: { type: Number, required: true },
+  price: { type: Number, required: true },
+  net: { type: String, default: "+0%" },
+  day: { type: String, default: "+0%" },
+  username: { type: String, required: true }, // ✅ updated from userId to username
+  date: { type: Date, default: Date.now },
 });
 
-
-const Holding = new model("Holding",holdingSchema);
-
-
-module.exports = {Holding};
+const Holding = model("Holding", holdingSchema);
+module.exports = { Holding };

@@ -7,7 +7,7 @@ const Summary = () => {
   const [investment, setInvestment] = useState(0);
   const [currentValue, setCurrentValue] = useState(0);
 
-  const username = localStorage.getItem("username") || "User";
+  const username = localStorage.getItem("username").split("@")[0] || "User";
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/allHoldings`)

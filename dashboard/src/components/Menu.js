@@ -6,7 +6,7 @@ const Menu = () => {
   const [isProfileDropdown, setIsProfileDropdown] = useState(false);
   const navigate = useNavigate();
 
-  const username = localStorage.getItem("username") || "USERID";
+  const username = localStorage.getItem("username").split("@")[0] || "USERID";
 
   function handleClick(index) {
     setSelectedMenu(index);

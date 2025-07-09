@@ -2,18 +2,28 @@ import React, { useState, useEffect, useContext } from "react";
 import VerticalGraph from "./VerticalGraph";
 import axios from "axios";
 import jsPDF from "jspdf";
-import "jspdf-autotable"; 
+import "jspdf-autotable";
 import Papa from "papaparse";
 import GeneralContext from "./GeneralContext";
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
-  const { openSellWindow } = useContext(GeneralContext); 
+  const { openSellWindow } = useContext(GeneralContext);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/allHoldings`).then((res) => {
-      setAllHoldings(res.data);
-    });
+    const username = localStorage.getItem("username");
+    if (!username) return;
+
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/allHoldings`, {
+        params: { username },
+      })
+      .then((res) => {
+        setAllHoldings(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching user holdings:", err);
+      });
   }, []);
 
   const totalInvestment = allHoldings.reduce(
@@ -154,9 +164,9 @@ const Holdings = () => {
           </thead>
           <tbody>
             {allHoldings.map((holding, index) => {
-              let curVal = holding.price * holding.qty;
-              let isProfit = curVal - holding.avg * holding.qty >= 0.0;
-              let profClass = isProfit ? "profit" : "loss";
+              const curVal = holding.price * holding.qty;
+              const isProfit = curVal - holding.avg * holding.qty >= 0.0;
+              const profClass = isProfit ? "profit" : "loss";
               const dayClass = holding.isLoss ? "loss" : "profit";
 
               return (

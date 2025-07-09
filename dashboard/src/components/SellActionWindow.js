@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
-
-import "./BuyActionWindow.css"; 
+import "./BuyActionWindow.css";
 
 const SellActionWindow = ({ uid }) => {
   const { closeSellWindow } = useContext(GeneralContext);
@@ -11,24 +9,39 @@ const SellActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleSellClick = () => {
+    const username = localStorage.getItem("username");
+
+    if (!username) {
+      alert("User not logged in.");
+      return;
+    }
+
+    const qty = parseInt(stockQuantity);
+    const price = parseFloat(stockPrice);
+
+    if (!qty || !price || !uid) {
+      alert("Please fill in all fields correctly.");
+      return;
+    }
+
+    const orderData = {
+      name: uid,
+      qty,
+      price,
+      mode: "SELL",
+      username,
+    };
+    console.log("Submitting order:", orderData);
     axios
-      .post("http://localhost:8000/newOrder", {
-        name: uid,
-        qty: parseInt(stockQuantity),
-        price: parseFloat(stockPrice),
-        mode: "SELL",
-      })
+      .post(`${process.env.REACT_APP_API_URL}/newOrder`, orderData)
       .then((res) => {
         console.log("Sell order placed successfully:", res.data);
         closeSellWindow();
       })
       .catch((err) => {
         console.error("Error placing sell order:", err);
+        alert("Failed to place sell order.");
       });
-  };
-
-  const handleCancelClick = () => {
-    closeSellWindow();
   };
 
   return (
@@ -41,6 +54,7 @@ const SellActionWindow = ({ uid }) => {
               type="number"
               name="qty"
               id="qty"
+              min="1"
               onChange={(e) => setStockQuantity(e.target.value)}
               value={stockQuantity}
             />
@@ -62,10 +76,10 @@ const SellActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Expected return ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
-          <button className="btn btn-red" onClick={handleSellClick}>
+          <button type="button" className="btn btn-red" onClick={handleSellClick}>
             Sell
           </button>
-          <button to="" className="btn btn-grey" onClick={handleCancelClick}>
+          <button type="button" className="btn btn-grey" onClick={closeSellWindow}>
             Cancel
           </button>
         </div>
