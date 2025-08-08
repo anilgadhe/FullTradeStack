@@ -12,24 +12,30 @@ const Signup = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form Data:', form);
 
-    axios.post(`${process.env.REACT_APP_API_URL}/signup`, {
-      email: form.email,
-      username: form.username,
-      password: form.password,
-    })
-      .then(response => {
-        console.log("Signup success:", response.data);
-        // Redirect to login page (you can change this if hosted)
-        window.location.href = "http://localhost:3001/login"; // Use relative path
-      })
-      .catch(error => {
-        console.error("Signup error:", error);
-        alert("Signup failed. Try again.");
+    const apiUrl = `${process.env.REACT_APP_API_URL}/signup`;
+    console.log('Sending signup to:', apiUrl);
+
+    try {
+      const response = await axios.post(apiUrl, {
+        email: form.email,
+        username: form.username,
+        password: form.password,
       });
+
+      if (response.data.success) {
+        alert("Signup successful! Redirecting to login...");
+        window.location.href = "http://localhost:3001/";
+      } else {
+        alert(response.data.message || "Signup failed. Try again.");
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert("Signup failed. Please check your input and try again.");
+    }
   };
 
   return (
@@ -47,6 +53,7 @@ const Signup = () => {
             value={form.email}
             onChange={handleChange}
             required
+            autoComplete="email"
           />
         </div>
 
@@ -60,6 +67,7 @@ const Signup = () => {
             value={form.username}
             onChange={handleChange}
             required
+            autoComplete="username"
           />
         </div>
 
@@ -73,6 +81,7 @@ const Signup = () => {
             value={form.password}
             onChange={handleChange}
             required
+            autoComplete="new-password"
           />
         </div>
 

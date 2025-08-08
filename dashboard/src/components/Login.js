@@ -26,8 +26,9 @@ const Login = () => {
       .then((response) => {
         if (response.data.success) {
           // Save username or email to localStorage
-          localStorage.setItem("username", credentials.email);
-          navigate("/");
+          localStorage.setItem("username", response.data.user.username)
+          localStorage.setItem("email", credentials.email);
+          navigate("/home");
         } else {
           alert(response.data.message || "Login failed");
         }
