@@ -83,6 +83,7 @@ const Login = () => {
           Login
         </button>
       </form>
+      <a href="https://full-trade-stack-git-main-anils-projects-8d93caa8.vercel.app/signup">Regiter</a>
     </div>
   );
 };
