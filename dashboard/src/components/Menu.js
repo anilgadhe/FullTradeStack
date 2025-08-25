@@ -6,7 +6,9 @@ const Menu = () => {
   const [isProfileDropdown, setIsProfileDropdown] = useState(false);
   const navigate = useNavigate();
 
-  const username = localStorage.getItem("username").split("@")[0] || "USERID";
+  const username = localStorage.getItem("username")
+    ? localStorage.getItem("username").split("@")[0]
+    : "USERID";
 
   function handleClick(index) {
     setSelectedMenu(index);
@@ -31,35 +33,69 @@ const Menu = () => {
       <div className="menus">
         <ul>
           <li>
-            <Link style={{ textDecoration: "none" }} to="/" onClick={() => handleClick(1)}>
-              <p className={selectedMenu === 1 ? activeMenuClass : menuClass}>Dashboard</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/summary"
+              onClick={() => handleClick(1)}
+            >
+              <p className={selectedMenu === 1 ? activeMenuClass : menuClass}>
+                Dashboard
+              </p>
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }} to="/orders" onClick={() => handleClick(2)}>
-              <p className={selectedMenu === 2 ? activeMenuClass : menuClass}>Orders</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/orders"
+              onClick={() => handleClick(2)}
+            >
+              <p className={selectedMenu === 2 ? activeMenuClass : menuClass}>
+                Orders
+              </p>
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }} to="/holdings" onClick={() => handleClick(3)}>
-              <p className={selectedMenu === 3 ? activeMenuClass : menuClass}>Holdings</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/holdings"
+              onClick={() => handleClick(3)}
+            >
+              <p className={selectedMenu === 3 ? activeMenuClass : menuClass}>
+                Holdings
+              </p>
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }} to="/positions" onClick={() => handleClick(4)}>
-              <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>Positions</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/positions"
+              onClick={() => handleClick(4)}
+            >
+              <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>
+                Positions
+              </p>
             </Link>
           </li>
           <li>
-            <Link style={{ textDecoration: "none" }} to="/funds" onClick={() => handleClick(5)}>
-              <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>Funds</p>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/funds"
+              onClick={() => handleClick(5)}
+            >
+              <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>
+                Funds
+              </p>
             </Link>
           </li>
         </ul>
 
         <hr />
 
-        <div className="profile" onClick={handleProfileClick} style={{ position: "relative", cursor: "pointer" }}>
+        <div
+          className="profile"
+          onClick={handleProfileClick}
+          style={{ position: "relative", cursor: "pointer" }}
+        >
           <div className="avatar"></div>
           <p className="username">{username}</p>
 
@@ -77,7 +113,10 @@ const Menu = () => {
                 zIndex: 1,
               }}
             >
-              <button onClick={handleLogout} className="btn btn-sm btn-danger w-100">
+              <button
+                onClick={handleLogout}
+                className="btn btn-sm btn-danger w-100"
+              >
                 Logout
               </button>
             </div>

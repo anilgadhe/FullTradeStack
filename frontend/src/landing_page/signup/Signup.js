@@ -28,7 +28,7 @@ const Signup = () => {
 
       if (response.data.success) {
         alert("Signup successful! Redirecting to login...");
-        window.location.href = "https://fulltradestack-dashboard.onrender.com/";
+        window.location.href = "https://fulltradestack-dashboard.onrender.com/login";
       } else {
         alert(response.data.message || "Signup failed. Try again.");
       }

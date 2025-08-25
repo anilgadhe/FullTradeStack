@@ -38,7 +38,7 @@ module.exports.Signup = async (req, res) => {
 module.exports.Login = async (req, res) => {
   try {
     const { email, username, password } = req.body;
-    if ((!email && !username) || !password) {
+    if ((!email || !username) && !password) {
       return res.json({ message: "Email/Username and password are required" });
     }
 
