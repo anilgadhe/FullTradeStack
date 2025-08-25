@@ -16,7 +16,7 @@ const URL = process.env.MONGO_URL;
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
-  "https://fulltradestack-dashboard.onrender.com",
+  "https://full-trade-stack-nnye.vercel.app",
 ];
 
 app.use(
