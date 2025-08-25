@@ -82,8 +82,12 @@ const Login = () => {
         <button type="submit" className="btn btn-primary w-100 rounded-2">
           Login
         </button>
+
+        <div className="mt-2">
+          <a href="https://full-trade-stack-git-main-anils-projects-8d93caa8.vercel.app/signup">Regiter</a>
+        </div>
       </form>
-      <a href="https://full-trade-stack-git-main-anils-projects-8d93caa8.vercel.app/signup">Regiter</a>
+
     </div>
   );
 };
